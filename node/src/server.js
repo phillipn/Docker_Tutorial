@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 let ejs = require('ejs');
 let pg = require('pg');
 
-let client = new pg.Client('postgres://postgres:blahblah@172.17.0.1:9000/postgres');
+let client = new pg.Client('postgres://postgres@172.17.0.1:9000/postgres');
 
 let votes = {
   sandwiches: 0,
@@ -53,5 +53,5 @@ app.post('/vote', urlencodedParser, function(req, res) {
 });
 
 const PORT = 8888;
-app.listen(PORT);
+app.listen(PORT, "0.0.0.0");
 console.log('Running on http://localhost:' + PORT);
